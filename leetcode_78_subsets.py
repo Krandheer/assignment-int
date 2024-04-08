@@ -29,14 +29,19 @@ def subsets(nums: List[int]) -> List[List[int]]:
         helper(temp_ans, arr[1:], index + 1)
 
         # not take case
-        temp_ans.pop()
+        temp_ans.pop()  # backtracking step
         helper(temp_ans, arr[1:], index + 1)
 
     helper([], nums, 0)
-    return ans
-
+    # return ans
+    # now if problem is about subset
+    temp_ans = []
+    for i in ans:
+        temp_ans.append(sum(i))
+    temp_ans.sort()
+    return temp_ans
 
 
 # tests
-# nums1 = [1, 2, 3]
-# print(subsets(nums1))
+nums1 = [1, 2, 3]
+print(subsets(nums1))
