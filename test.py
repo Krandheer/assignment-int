@@ -1,4 +1,5 @@
 def window_sum(arr, k):
+    """find the maximum sum of by picking k element consecutively"""
     temp_sum = sum(arr[:k])
     max_sum = temp_sum
     l = 0
@@ -18,6 +19,7 @@ def window_sum(arr, k):
 
 
 def longest_subarry(arr, k):
+    """longest subarray with sum less than or equal to k"""
     l, r = 0, 0
     long_len = l - r + 1
     temp_sum = 0
