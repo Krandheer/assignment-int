@@ -20,12 +20,14 @@ def window_sum(arr, k):
 def longest_subarry(arr, k):
     l, r = 0, 0
     long_len = l - r + 1
+    temp_sum = 0
     while l <= r and r < len(arr):
-        temp_sum = sum(arr[l : r + 1])
+        temp_sum += arr[r]
         if temp_sum <= k:
             long_len = max(long_len, r - l + 1)
             r += 1
         else:
+            temp_sum -= arr[l]
             l += 1
 
     return long_len
