@@ -35,6 +35,41 @@ def longest_subarry(arr, k):
     return long_len
 
 
-arr = [2, 5, 1, 7, 10]
-k = 14
-print(longest_subarry(arr, k))
+# arr = [2, 5, 1, 7, 10]
+# k = 14
+# print(longest_subarry(arr, k))
+
+
+def fruit_into_basket(arr, k):
+    """given k basket find maximum number of fruits you can put in
+    you have to start from beginning in array and you can't jump
+    and you can put only one type of fruit in one basket"""
+
+    # basically if i have k = 2, then I need to find the maximum
+    # length of substring having only two type of elements consecutively
+    temp = set()
+    i, j = 0, 0
+    max_len = j - i + 1
+
+    while i <= j and j < len(arr):
+        if len(temp) < 2:
+            if arr[j] not in temp:
+                temp.add(arr[j])
+                max_len = max(max_len, j - i + 1)
+                j += 1
+            else:
+                max_len = max(max_len, j - i + 1)
+                j += 1
+        elif len(temp) == 2:
+            if arr[j] in temp:
+                max_len = max(max_len, j - i + 1)
+                j += 1
+            else:
+                temp = set()
+                i = j + 1
+                j += 1
+    return max_len
+
+
+arr = [3, 3, 3, 1, 2, 1, 1, 2, 3, 3, 4]
+print(fruit_into_basket(arr, 2))
