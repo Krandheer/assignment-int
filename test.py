@@ -52,7 +52,7 @@ def fruit_into_basket(arr, k):
     max_len = j - i + 1
 
     while i <= j and j < len(arr):
-        if len(temp) < 2:
+        if len(temp) < k:
             if arr[j] not in temp:
                 temp.add(arr[j])
                 max_len = max(max_len, j - i + 1)
@@ -60,7 +60,7 @@ def fruit_into_basket(arr, k):
             else:
                 max_len = max(max_len, j - i + 1)
                 j += 1
-        elif len(temp) == 2:
+        elif len(temp) == k:
             if arr[j] in temp:
                 max_len = max(max_len, j - i + 1)
                 j += 1
