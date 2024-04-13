@@ -66,8 +66,10 @@ def fruit_into_basket(arr, k):
                 j += 1
             else:
                 temp = set()
-                i = j + 1
-                j += 1
+                i = j - 1
+                temp.add(arr[i])
+                if arr[j] not in temp:
+                    temp.add(arr[j])
     return max_len
 
 
