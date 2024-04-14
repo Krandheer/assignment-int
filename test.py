@@ -73,5 +73,24 @@ def fruit_into_basket(arr, k):
     return max_len
 
 
-arr = [3, 3, 3, 1, 2, 1, 1, 2, 3, 3, 4]
-print(fruit_into_basket(arr, 2))
+# arr = [3, 3, 3, 1, 2, 1, 1, 2, 3, 3, 4]
+# print(fruit_into_basket(arr, 2))
+
+
+def nth_root(n, m):
+    # given two number find a nth room of m such that x**n = m
+    """we know the root will be less than m, basically between 1, m"""
+    low = 1
+    high = m - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if mid**n == m:
+            return mid
+        elif mid**n >= m:
+            high = mid - 1
+        else:
+            low = mid + 1
+    return -1
+
+
+print(nth_root(3, 64))
