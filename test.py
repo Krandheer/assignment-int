@@ -86,7 +86,7 @@ def nth_root(n, m):
         mid = (low + high) // 2
         if mid**n == m:
             return mid
-        elif mid**n >= m:
+        if mid**n >= m:
             high = mid - 1
         else:
             low = mid + 1
