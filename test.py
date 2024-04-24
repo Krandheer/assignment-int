@@ -4,7 +4,7 @@ def window_sum(arr, k):
     max_sum = temp_sum
     l = 0
     r = k - 1
-    while r < len(arr) and l < r:
+    while l < r < len(arr):
         temp = temp_sum - arr[l]
         l += 1
         temp = temp + arr[r]
@@ -23,7 +23,7 @@ def longest_subarry(arr, k):
     l, r = 0, 0
     long_len = l - r + 1
     temp_sum = 0
-    while l <= r and r < len(arr):
+    while l <= r < len(arr):
         temp_sum += arr[r]
         if temp_sum <= k:
             long_len = max(long_len, r - l + 1)
@@ -51,7 +51,7 @@ def fruit_into_basket(arr, k):
     i, j = 0, 0
     max_len = j - i + 1
 
-    while i <= j and j < len(arr):
+    while i <= j < len(arr):
         if len(temp) < k:
             if arr[j] not in temp:
                 temp.add(arr[j])
@@ -93,4 +93,15 @@ def nth_root(n, m):
     return -1
 
 
-print(nth_root(3, 64))
+# print(nth_root(3, 64))
+
+
+
+
+
+
+
+
+
+
+
